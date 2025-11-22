@@ -1,13 +1,233 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>playeras-vegas</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Playeras Motociclistas</title>
+    <!-- Carga de Tailwind CSS para estilos rápidos y responsivos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        
+        :root {
+            --color-dark-leather: #1c1c1c;
+            --color-black: #0a0a0a;
+            --color-chrome-light: #cccccc;
+            --color-danger-red: #cc0000;
+        }
+
+      
+        .font-biker {
+            font-family: 'Oswald', Impact, sans-serif;
+            letter-spacing: 2px;
+        }
+
+      
+        body {
+            background-color: var(--color-black);
+            background-image: radial-gradient(circle at center, var(--color-dark-leather) 0%, var(--color-black) 100%);
+            color: #f0f0f0;
+            min-height: 100vh;
+        }
+
+      
+        .card-biker {
+            background-color: var(--color-dark-leather);
+            border: 2px solid var(--color-chrome-light);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 0 10px var(--color-danger-red);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card-biker:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 1), 0 0 15px var(--color-danger-red);
+        }
+
+        
+        .btn-primary-biker {
+            background-color: var(--color-danger-red);
+            color: #f0f0f0;
+            border: 2px solid #f0f0f0;
+            box-shadow: 0 4px var(--color-dark-leather), 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary-biker:hover {
+            background-color: #ff3333;
+            transform: translateY(-2px);
+        }
+
+        
+        .loader-pulse {
+            animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+
+        
+        .social-icon {
+            color: var(--color-chrome-light);
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+        .social-icon:hover {
+            color: var(--color-danger-red);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    
+    <header class="w-full text-center py-6 bg-dark-leather shadow-2xl mb-8">
+        <h1 class="text-5xl text-danger-red font-biker uppercase" style="color: var(--color-danger-red);">
+            Hell's bro
+        </h1>
+        <h2 class="text-xl text-chrome-light font-biker" style="color: var(--color-chrome-light);">
+            Catálogo de Playeras V8
+        </h2>
+    </header>
+
+    <main class="max-w-7xl mx-auto">
+
+        <div id="loading" class="text-center mt-20 text-3xl font-biker loader-pulse" style="color: var(--color-danger-red);">
+            Cargando el Garaje...
+        </div>
+
+        <div id="error-message" class="hidden text-red-500 border border-red-500 p-4 mt-10 rounded text-center">
+            Error al cargar las playeras. Revisa tu conexión a Internet o intenta de nuevo.
+        </div>
+
+        
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          
+        </div>
+    </main>
+
+    
+    <footer class="w-full mt-12 py-10 border-t border-gray-700" style="background-color: var(--color-black);">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left p-4">
+            
+            
+            <div>
+                <h3 class="text-2xl font-biker uppercase mb-4" style="color: var(--color-danger-red);">
+                    Contacto Rápido
+                </h3>
+                <p class="text-sm mb-2">
+                    <span class="text-gray-400">Dirección:</span> 666 V8 Road, Biker City, USA
+                </p>
+                <p class="text-sm mb-2">
+                    <span class="text-gray-400">Teléfono:</span> +52 (555) 555-FIRE
+                </p>
+                <p class="text-sm">
+                    <span class="text-gray-400">Email:</span>
+                    <a href="lvsupport@gmail.com" class="hover:text-red-500 transition">soporte@v8apparel.com</a>
+                </p>
+            </div>
+
+
+            <div class="md:text-center">
+                <h3 class="text-2xl font-biker uppercase mb-4" style="color: var(--color-danger-red);">
+                    Síguenos en la Carretera
+                </h3>
+                <div class="flex justify-center md:justify-center space-x-6">
+                    
+                    <a href="#" class="social-icon text-3xl font-biker" title="Facebook">FB</a>
+                    <a href="#" class="social-icon text-3xl font-biker" title="Instagram">IG</a>
+                    <a href="#" class="social-icon text-3xl font-biker" title="Twitter">X</a>
+                </div>
+            </div>
+
+            
+            <div class="md:text-right">
+                <h3 class="text-2xl font-biker uppercase mb-4" style="color: var(--color-danger-red);">
+                    Legal
+                </h3>
+                <p class="text-sm hover:text-red-500 transition cursor-pointer mb-2">
+                    Política de Privacidad
+                </p>
+                <p class="text-sm hover:text-red-500 transition cursor-pointer">
+                    Términos y Condiciones
+                </p>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center mt-8 pt-4 border-t border-gray-800">
+            <p class="text-xs text-gray-500">
+                &copy; 2025 Hello bro . Todos los derechos reservados. | Powered by V8.
+            </p>
+        </div>
+    </footer>
+
+
+    <script>
+        // API URL para obtener fotos (simulando ser playeras)
+        const FAKE_API_URL = 'https://jsonplaceholder.typicode.com/photos';
+        const productsGrid = document.getElementById('products-grid');
+        const loadingElement = document.getElementById('loading');
+        const errorElement = document.getElementById('error-message');
+
+        
+        function createTshirtCard(product) {
+            const card = document.createElement('div');
+            card.className = 'card-biker p-5 rounded-xl shadow-lg';
+
+            // Placeholder de imagen de calavera si falla la URL
+            const placeholderUrl = "https://placehold.co/350x350/1C1C1C/CC0000?text=SKULL";
+            
+            card.innerHTML = `
+                <img 
+                    src="${product.thumbnailUrl}" 
+                    alt="Playera ${product.title}" 
+                    class="product-image w-full h-auto rounded border border-gray-600 mb-4 object-cover"
+                    onerror="this.onerror=null; this.src='${placeholderUrl}';"
+                />
+                <h3 class="text-xl font-biker uppercase text-chrome-light mb-2 truncate" title="${product.title}">
+                    ${product.title.toUpperCase().substring(0, 30)}...
+                </h3>
+                <p class="text-sm italic text-gray-400 mb-4">
+                    Diseño exclusivo, tela reforzada.
+                </p>
+                <p class="text-3xl font-biker text-red-500 mb-4">$29.99</p> 
+                <button class="btn-primary-biker w-full py-3 rounded-md font-biker">
+                    AÑADIR AL CARRO
+                </button>
+            `;
+            return card;
+        }
+
+        // Función para obtener y renderizar los productos
+        async function fetchAndRenderProducts() {
+            loadingElement.classList.remove('hidden');
+            productsGrid.innerHTML = '';
+            errorElement.classList.add('hidden');
+
+            try {
+                // Limitamos a 12 productos para una carga rápida
+                const response = await fetch(FAKE_API_URL + '?_limit=12');
+
+                if (!response.ok) {
+                    throw new Error('La respuesta de la red no fue correcta.');
+                }
+
+                const data = await response.json();
+
+                data.forEach(product => {
+                    const card = createTshirtCard(product);
+                    productsGrid.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error("Error al cargar los datos:", error);
+                errorElement.classList.remove('hidden');
+            } finally {
+                loadingElement.classList.add('hidden');
+            }
+        }
+
+        
+        document.addEventListener('DOMContentLoaded', fetchAndRenderProducts);
+    </script>
+</body>
 </html>

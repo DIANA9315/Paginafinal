@@ -1,42 +1,172 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/*
+ * Archivo: App.css
+ * Estilos inspirados en la estética motociclista (Biker Style):
+ * Oscuro, robusto, con toques de cromo y tipografía fuerte.
+ */
+
+/* ======================================================= */
+/* 1. VARIABLES GLOBALES (Colores y Fuentes)               */
+/* ======================================================= */
+:root {
+  /* Paleta de colores principal */
+  --color-dark-leather: #1c1c1c; /* Cuero oscuro casi negro */
+  --color-black: #0a0a0a;        /* Negro profundo */
+  --color-chrome-light: #cccccc; /* Cromo o metal claro */
+  --color-chrome-accent: #9d9d9d; /* Gris metalizado */
+  --color-danger-red: #cc0000;   /* Rojo de fuego o peligro */
+  --color-text-primary: #f0f0f0; /* Texto principal (blanco roto) */
+
+  /* Tipografía (Estilo fuerte y legible) */
+  --font-family-header: 'Oswald', 'Impact', sans-serif;
+  --font-family-body: 'Arial', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ======================================================= */
+/* 2. ESTILO BASE DEL CUERPO (Body)                        */
+/* ======================================================= */
+body {
+  background-color: var(--color-black);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-body);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  /* Fondo sutil para simular textura de cuero o metal oscuro */
+  background-image: radial-gradient(circle at center, var(--color-dark-leather) 0%, var(--color-black) 100%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Contenedor principal de la aplicación */
+#root, .App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
+
+/* ======================================================= */
+/* 3. TIPOGRAFÍA Y ENCABEZADOS                             */
+/* ======================================================= */
+h1, h2, h3 {
+  font-family: var(--font-family-header);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--color-chrome-light);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para darle profundidad */
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 1.5rem 0;
+  color: var(--color-danger-red); /* Título principal en color llamativo */
+}
+
+/* ======================================================= */
+/* 4. TARJETAS Y CONTENEDORES (Para Playeras)              */
+/* ======================================================= */
 
 .card {
-  padding: 2em;
+  background-color: var(--color-dark-leather);
+  border: 2px solid var(--color-chrome-accent);
+  border-radius: 8px; /* Bordes ligeramente redondeados */
+  padding: 20px;
+  margin: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), /* Sombra profunda */
+              0 0 10px var(--color-danger-red); /* Pequeño brillo rojo */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 90%;
+  max-width: 350px;
 }
 
-.read-the-docs {
-  color: #888;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 1),
+              0 0 15px var(--color-danger-red);
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-chrome-accent);
+  border-radius: 4px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* ======================================================= */
+/* 5. BOTONES (Elementos de Cromo y Metal)                 */
+/* ======================================================= */
+button {
+  font-family: var(--font-family-header);
+  text-transform: uppercase;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+
+  /* Estilo base: aspecto de metal oscuro */
+  background-color: var(--color-chrome-accent);
+  color: var(--color-black);
+  box-shadow: 0 4px var(--color-chrome-accent), 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+  background-color: var(--color-chrome-light);
+  color: var(--color-black);
+  transform: translateY(-2px);
+  box-shadow: 0 6px var(--color-chrome-accent), 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+/* Botón de acción principal (e.g., "Comprar") */
+.btn-primary {
+  background-color: var(--color-danger-red);
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-text-primary);
+  box-shadow: 0 4px var(--color-dark-leather), 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-primary:hover {
+  background-color: #ff3333;
+  transform: translateY(-2px);
+  box-shadow: 0 6px var(--color-dark-leather), 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+/* ======================================================= */
+/* 6. ENTRADAS DE TEXTO (Inputs)                           */
+/* ======================================================= */
+input[type="text"],
+input[type="number"],
+textarea {
+  background-color: var(--color-black);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-chrome-accent);
+  padding: 10px;
+  margin-bottom: 15px;
+  width: calc(100% - 22px);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-danger-red);
+  box-shadow: 0 0 5px var(--color-danger-red);
+}
+
+/* ======================================================= */
+/* 7. LAYOUT DE PLAYERAS (Ejemplo)                         */
+/* ======================================================= */
+
+.tshirts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
 }
